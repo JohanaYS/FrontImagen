@@ -8,5 +8,6 @@ if (environment.production) {
   enableProdMode();
 }
 
+//FIREBASE NO TOCAR
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
