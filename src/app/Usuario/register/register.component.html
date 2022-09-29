@@ -1,0 +1,27 @@
+<div class="register">
+    <form class="custom-form" method="post">
+      <h1>Registrarse</h1>
+      <input
+        type="text"
+        [(ngModel)]="usuario"
+        name="usuario"
+        placeholder="Nombre"
+        required="required"
+      />
+      <input
+        type="password"
+        [(ngModel)]="clave"
+        name="clave"
+        placeholder="Contraseña"
+        required="required"
+      />
+      <input
+        type="password"
+        [(ngModel)]="confirContra"
+        name="clave"
+        placeholder="Repetir contraseña"
+        required="required"
+      />
+      <button type="submit" (click)="register()">Register</button>
+    </form>
+  </div>
