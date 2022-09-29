@@ -1,3 +1,21 @@
-<div *ngIF="users">
-    {{ users }}
-</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Usuario</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.usuario}}</td>
+            <td>
+                <button type="button" >Eliminar</button>
+            </td>
+            <td>
+                <a href="=">Actualizar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

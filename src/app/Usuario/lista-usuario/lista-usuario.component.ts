@@ -9,19 +9,17 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class ListaUsuarioComponent implements OnInit {
   
-  public users:UsuarioDTO[]=[];
+  users:UsuarioDTO[]=[]
+  usuario:string=""
 
   constructor(private usuarioService:UsuarioService) { }
 
   ngOnInit(): void {
 
     //INYECTANDO EL SERVICIO MOSTRAR TODOS
-    this.usuarioService.getUsers()
-    .subscribe(respuesta => {
-      this.users=respuesta
-   },
-   
-   error =>console.log(error));
+    this.usuarioService.getUsers().subscribe((userApi:UsuarioDTO[])=>{
+      this.users = userApi
+    });
   
   }
 

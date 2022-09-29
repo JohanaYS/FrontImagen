@@ -24,8 +24,8 @@ export class UsuarioService {
   }
 
   //TRAER TODOS
-  ruta= "http://localhost:300/usuario"
-   getUsers():Observable<UsuarioDTO[]> {
+  ruta= "http://localhost:3000/usuario"
+  getUsers():Observable<UsuarioDTO[]> {
     return this.http.get<UsuarioDTO[]>(this.ruta);
   }
 
