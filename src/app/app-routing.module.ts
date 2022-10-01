@@ -20,8 +20,9 @@ import { RegisterComponent } from "./Usuario/register/register.component";
 
 
 const  routes: Routes =[
-  {path: "", component:  ListaImagenComponent, pathMatch:"full"},
+  {path: "", component:  LoginComponent, pathMatch:"full"},
   {path: "login", component: LoginComponent, pathMatch:"full"},
+  {path: "home", component:  ListaImagenComponent, pathMatch:"full"},
   {path: "register", component: RegisterComponent, pathMatch:"full"},
   {path: "users", component: ListaUsuarioComponent, pathMatch:"full"},
   {path: "users/update", component: FormActualizarComponent, pathMatch:"full"}

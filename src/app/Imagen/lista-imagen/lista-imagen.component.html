@@ -16,7 +16,10 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.css">
     <link rel="stylesheet" href="./lista-imagen.component.css">
 
 
@@ -34,33 +37,53 @@
         <nav class="skew-menu">
             <ul>
                 <li><a href="#">Home</a></li>
+                <li>
+                    <input type="file" (change)="uploadImage($event)" class=" btn btn-light"
+                    style="display: block;
+                    padding: 1em 2em;
+                    color: black;
+                    text-decoration: none;
+                    transform: skew(25deg);
+                    margin-right: 30px;">
+                </li>
+
+                <li>
+                    <a type="file" (click)="uploadImage($event)" class=" btn btn-light"
+                    style="display: block;
+                    padding: 1em 2em;
+                    color: black;
+                    text-decoration: none;
+                    transform: skew(25deg);
+                    margin-right: 30px;"></a>
+                </li>
+               
+
                 <li><a href="/users">Usuarios</a></li>
                 <li><a href="/login">Login</a></li>
-                <li><a href="#">Salir</a></li>
+                <li><a type="submit" (click)="logout()">Salir</a></li>
             </ul>
         </nav>
 
 
 
-        <div class="tz-gallery">
+        <!-- Imagenes -->
 
-            <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="gs://modvi-cce69.appspot.com/images">
-                        <img [src]="image" *ngFor="let image of images" alt="8">
-                    </a>
-                </div>
-            </div>
-
-        </div>
+        <a  *ngFor="let image of images" class="lightbox" [href]="image">
+            <img  [src]="image"  alt="" 
+            style="
+            width: 300px; 
+            height: 300px; 
+            margin-top: 30px; 
+            margin-left: 60px;">
+        </a>
+       
+    
+                
     </div>
-
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-        <script>
-            baguetteBox.run('.tz-gallery');
-        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run('.tz-gallery');
+    </script>
 </body>
 
 </html>

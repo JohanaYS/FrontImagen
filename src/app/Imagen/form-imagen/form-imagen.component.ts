@@ -1,3 +1,4 @@
+import { ref, Storage, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormImagenComponent implements OnInit {
 
-  constructor() { }
+  constructor( private storage: Storage) { }
 
   ngOnInit(): void {
+  }
+
+  //SUBIR IMAGEN
+  uploadImage($event:any){
+    const file = $event.target.files[0];
+    console.log(file);
+/*Direccion de guardado*/
+    const imgRef = ref(this.storage,`images/${file.name}`);
+/**Cargar imagen, Referencia donde se guarda*/
+    uploadBytes(imgRef, file)
+   /*  .then(response => {
+      this.getImages();
+      console.log(response)})
+    .catch(error=> console.log(error)); */
   }
 
 }

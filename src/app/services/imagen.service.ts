@@ -12,13 +12,7 @@ export class ImagenService {
   constructor(private http:HttpClient) {}
 
    
-  //GETALL
-   getAll() {
-    this.http.get("http://localhost:3000/imagen").subscribe(data => {
-      console.log(data);
-    });
-  }
-
+  
   
 
 

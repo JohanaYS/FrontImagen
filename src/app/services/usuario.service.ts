@@ -13,13 +13,13 @@ export class UsuarioService {
 
   //LOGEO
   rutalogin="http://localhost:3000/auth/auth/login";
-  login(user:UsuarioDTO):Observable<UsuarioDTO> {
+  login(user:UsuarioDTO):Observable<any> {
     return this.http.post<UsuarioDTO>(this.rutalogin, user);
   }
 
   //REGISTRAR USUARIO
   rutacreate="http://localhost:3000/usuario/crear";
-  register(user:UsuarioDTO):Observable<UsuarioDTO> {
+  register(user:UsuarioDTO):Observable<any> {
     return this.http.post<UsuarioDTO>(this.rutacreate, user);
   }
 
@@ -31,24 +31,28 @@ export class UsuarioService {
 
   //GUARDAR TOKEN EN COOKIES
   setToken(token: string): void {
-    this.cookies.set('token', token);
+    localStorage.setItem('token', token);
   }
 
   //RECUPERAR TOKEN DE LAS COOKIES
-  getToken():string {
-    return this.cookies.get('token');
+  getToken()                {
+    return localStorage.getItem('token');
   }
 
   //ACTUALIZAR USUARIO
-  rutaPut= "http://localhost:3000/usuario/actualizar/:id"
+  rutaPut= "http://localhost:3000/usuario/:id"
   putUser(user:UsuarioDTO):Observable<UsuarioDTO> {
     return this.http.put<UsuarioDTO>(this.rutaPut,user);
   }
 
 
   //ELIMINAR USUARIO
-  rutaDelete= "http://localhost:3000/usuario/eliminar/:id"
+  rutaDelete= "http://localhost:3000/usuario/eliminar"
   deleteUser(id:string) {
-   return this.http.delete(this.rutaDelete+"/"+id);
+   return this.http.delete(this.rutaDelete+""+id);
+  }
+
+  clearToken(){
+    localStorage.removeItem('token');
   }
 }

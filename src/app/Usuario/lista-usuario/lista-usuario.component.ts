@@ -32,7 +32,12 @@ export class ListaUsuarioComponent implements OnInit {
 
 
   //ELIMINAR
-  deleteUser():void{
+  deleteUser(id:string){
+    if (confirm('Seguro que desea Eliminar')){
+      this.usuarioService.deleteUser(this.id).subscribe((data)=>{
+        this.ngOnInit();
+      })
+    }
     
   }
 

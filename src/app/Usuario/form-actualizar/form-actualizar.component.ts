@@ -10,12 +10,14 @@ export class FormActualizarComponent {
 
   usuario: string=""
   clave:string=""
+  _id:string=""
+  __v:number=0
 
   constructor(public usuarioService: UsuarioService) { }
 
 
   actualizar() {
-    const user = { usuario: this.usuario, clave: this.clave };
+    const user = { _id:this._id, usuario: this.usuario, clave: this.clave, __v:this.__v };
     this.usuarioService.putUser(user).subscribe(data => {
      console.log(data);
     });

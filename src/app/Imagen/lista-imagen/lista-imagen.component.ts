@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ref, Storage, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage'
+import { ref, Storage, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-imagen',
@@ -13,7 +16,9 @@ export class ListaImagenComponent implements OnInit {
   //MOSTRAR IMAGEN
   images: string[];
 
-  constructor( private storage: Storage) { 
+  constructor( private storage: Storage, private usuarioService: UsuarioService, 
+    private cookies: CookieService, private router:Router) {  
+      
     this.images =[];
   }
 
@@ -58,6 +63,14 @@ export class ListaImagenComponent implements OnInit {
 
     })
     .catch(error => console.log(error));
+  }
+
+
+  //CERRAR SESION
+  logout(){
+    this.usuarioService.clearToken();
+
+    this.router.navigateByUrl('/');
   }
 
 
