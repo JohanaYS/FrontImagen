@@ -1,0 +1,15 @@
+
+
+<div class="actualizar">
+    <form class="custom-form" method="put">
+        <h1>Login</h1>
+        <input
+        type="text"
+        [(ngModel)]="usuario"
+        name="usuario"
+        placeholder="Nombre"
+        required="required"
+        />
+        <button type="submit" (click)="actualizar()" >Actualizar</button>
+    </form>
+</div>

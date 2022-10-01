@@ -24,18 +24,31 @@ export class UsuarioService {
   }
 
   //TRAER TODOS
-  ruta= "http://localhost:3000/usuario"
+  rutaAll= "http://localhost:3000/usuario"
   getUsers():Observable<UsuarioDTO[]> {
-    return this.http.get<UsuarioDTO[]>(this.ruta);
+    return this.http.get<UsuarioDTO[]>(this.rutaAll);
   }
 
   //GUARDAR TOKEN EN COOKIES
-  setToken(token: string) {
-    this.cookies.set("token", token);
+  setToken(token: string): void {
+    this.cookies.set('token', token);
   }
 
   //RECUPERAR TOKEN DE LAS COOKIES
-  getToken() {
-    return this.cookies.get("token");
+  getToken():string {
+    return this.cookies.get('token');
+  }
+
+  //ACTUALIZAR USUARIO
+  rutaPut= "http://localhost:3000/usuario/actualizar/:id"
+  putUser(user:UsuarioDTO):Observable<UsuarioDTO> {
+    return this.http.put<UsuarioDTO>(this.rutaPut,user);
+  }
+
+
+  //ELIMINAR USUARIO
+  rutaDelete= "http://localhost:3000/usuario/eliminar/:id"
+  deleteUser(id:string) {
+   return this.http.delete(this.rutaDelete+"/"+id);
   }
 }

@@ -5,16 +5,18 @@
         <tr>
             <th scope="col">Usuario</th>
             <th scope="col"></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let user of users">
             <td>{{user.usuario}}</td>
             <td>
-                <button type="button" >Eliminar</button>
+                <a class="btn btn-danger" type="submit" (click)="deleteUser()">Eliminar</a>
             </td>
             <td>
-                <a href="=">Actualizar</a>
+                <a class=" btn btn-secondary" routerLink="/users/update">Actualizar</a>
             </td>
         </tr>
     </tbody>

@@ -17,7 +17,14 @@ import { RegisterComponent } from './Usuario/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { CookieService } from 'ngx-cookie-service';
-import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { FormActualizarComponent } from './Usuario/form-actualizar/form-actualizar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +34,8 @@ import { HomeComponent } from './home/home.component';
     ListaUsuarioComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    NavBarComponent,
+    FormActualizarComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,13 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     //FIREBASE NO TOCAR
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [ImagenService, UsuarioService, CookieService],
   bootstrap: [AppComponent]

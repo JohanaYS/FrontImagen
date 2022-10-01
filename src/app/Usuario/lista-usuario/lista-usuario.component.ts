@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioDTO } from 'src/app/dto/UsuarioDTO';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -9,10 +10,16 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class ListaUsuarioComponent implements OnInit {
   
-  users:UsuarioDTO[]=[]
+  titulo:string='Administrador de Usuarios'
+  users:UsuarioDTO[]=[];
   usuario:string=""
+  id:string=""
 
-  constructor(private usuarioService:UsuarioService) { }
+  constructor(private usuarioService:UsuarioService, private router:Router) { }
+
+  goToPage(pagina:string): any{
+    this.router.navigate([`${pagina}`]);
+  }
 
   ngOnInit(): void {
 
@@ -22,6 +29,14 @@ export class ListaUsuarioComponent implements OnInit {
     });
   
   }
+
+
+  //ELIMINAR
+  deleteUser():void{
+    
+  }
+
+  
 
    
 }                                                                                                                                                                                                                                     

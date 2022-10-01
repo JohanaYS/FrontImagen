@@ -13,10 +13,12 @@ export class LoginComponent implements OnInit {
 
   constructor(public usuarioService: UsuarioService ) {}
 
-  
 
   ngOnInit(): void {
   }
+
+
+  //INICIAR SESION
   login(){
     const usuarios ={usuario:this.usuario, clave: this.clave}
     this.usuarioService.login(usuarios).subscribe(data => {

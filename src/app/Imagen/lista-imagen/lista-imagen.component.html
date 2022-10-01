@@ -1,4 +1,66 @@
-<input type="file" (change)="uploadImage($event)">
-<div class="images">
-    <img [src]="image" *ngFor="let image of images" width="200">
-</div>
+<!-- <input type="file" (change)="uploadImage($event)"> -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Freebie: 4 Bootstrap Gallery Templates</title>
+    <title>CodePen - Skewed Menu</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="./lista-imagen.component.css">
+
+
+</head>
+
+<body>
+
+    <div class="container gallery-container">
+
+        <h1>MAGE</h1>
+
+        <p class="page-description text-center">Galería de imagenes</p>
+
+
+        <nav class="skew-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="/users">Usuarios</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="#">Salir</a></li>
+            </ul>
+        </nav>
+
+
+
+        <div class="tz-gallery">
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox" href="gs://modvi-cce69.appspot.com/images">
+                        <img [src]="image" *ngFor="let image of images" alt="8">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+        <script>
+            baguetteBox.run('.tz-gallery');
+        </script>
+</body>
+
+</html>
