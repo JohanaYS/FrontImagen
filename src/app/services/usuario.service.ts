@@ -40,7 +40,7 @@ export class UsuarioService {
   }
 
   //ACTUALIZAR USUARIO
-  rutaPut= "http://localhost:3000/usuario/:id"
+  rutaPut= "http://localhost:3000/usuario/actualizar"
   putUser(user:UsuarioDTO):Observable<UsuarioDTO> {
     return this.http.put<UsuarioDTO>(this.rutaPut,user);
   }
